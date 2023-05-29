@@ -7,17 +7,20 @@ import Watchlist from "./components/Watchlist";
 import "./App.css";
 import "./lib/font-awesome/css/all.min.css";
 import { GlobalProvider } from "./context/GlobalState";
+import { HashRouter } from "react-router-dom";
 
 function App() {
   return (
     <GlobalProvider>
       <Router>
-        <Header />
-        <Routes>
-          <Route exact path="/" Component={Watchlist} />
-          <Route exact path="/watched" Component={Watched} />
-          <Route exact path="/add" Component={Add} />
-        </Routes>
+        <HashRouter basename="/">
+          <Header />
+          <Routes>
+            <Route exact path="/" Component={Watchlist} />
+            <Route exact path="/watched" Component={Watched} />
+            <Route exact path="/add" Component={Add} />
+          </Routes>
+        </HashRouter>
       </Router>
     </GlobalProvider>
   );
